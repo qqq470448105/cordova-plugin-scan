@@ -6,7 +6,7 @@
     
 #### 调用示例
 
-    ScanPlugin.scan("", function (data) {
+    ScanPlugin.scan(function (data) {
     //成功回调
     }, function (error) {
     //失败回调
