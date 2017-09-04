@@ -1,0 +1,1 @@
+# Cordova-Plugin-QRCode-Scan
