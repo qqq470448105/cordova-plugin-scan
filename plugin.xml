@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin id="cordova-plugin-scan" version="1.0.0">
+
+    <name>ScanPlugin</name>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/ScanPlugin.js" name="ScanPlugin">
+        <clobbers target="window.ScanPlugin" />
+    </js-module>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ScanPlugin">
+                <param name="ios-package" value="ScanPlugin" />
+            </feature>
+        </config-file>
+
+        <preference name="CAMERA_USAGE_DESCRIPTION" default=" " />
+         <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+             <string>请允许访问您的相机</string>
+         </config-file>
+         
+        <preference name="PHOTOLIBRARY_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+			<string>请允许访问您的照片</string>
+		</config-file>
+
+        <!--引入插件调用类-->
+        <header-file src="src/ios/ScanPlugin.h" />
+        <source-file src="src/ios/ScanPlugin.m" />
+        
+        <!--引入第三方SDK-->
+        <header-file src="libs/ios/Scan_VC.h" />
+        <source-file src="libs/ios/Scan_VC.m" />
+        <header-file src="libs/ios/UIView+SDExtension.h" />
+        <source-file src="libs/ios/UIView+SDExtension.m" />
+        <framework src="ImageIO.framework" weak="true" />
+        <framework src="CoreLocation.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="AssetsLibrary.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="AVFoundation.framework" />
+
+        <!-- 图片资源 -->
+        <resource-file src="libs/ios/Resources/qrcode_scan_btn_flash_down@2x.png" />  
+        <resource-file src="libs/ios/Resources/qrcode_scan_btn_flash_nor@2x.png" />
+        <resource-file src="libs/ios/Resources/qrcode_scan_btn_myqrcode_down@2x.png" />
+        <resource-file src="libs/ios/Resources/qrcode_scan_btn_myqrcode_nor@2x.png" />  
+        <resource-file src="libs/ios/Resources/qrcode_scan_btn_photo_down@2x.png" />
+        <resource-file src="libs/ios/Resources/qrcode_scan_btn_photo_nor@2x.png" />
+        <resource-file src="libs/ios/Resources/qrcode_scan_btn_scan_off@2x.png" />
+        <resource-file src="libs/ios/Resources/qrcode_scan_light_green@2x.png" />
+        <resource-file src="libs/ios/Resources/qrcode_scan_titlebar_back_nor@2x.png" />
+        <resource-file src="libs/ios/Resources/qrcode_scan_titlebar_back_pressed@2x.png" />
+        <resource-file src="libs/ios/Resources/scan_1@2x.png" />
+        <resource-file src="libs/ios/Resources/scan_2@2x.png" />
+        <resource-file src="libs/ios/Resources/scan_3@2x.png" />
+        <resource-file src="libs/ios/Resources/scan_4@2x.png" />
+        <resource-file src="libs/ios/Resources/scan_net@2x.png" />
+        <resource-file src="libs/ios/Resources/scanimg@2x.png" />
+
+    </platform>
+
+    <!-- Android -->
+    <!-- <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ScanPlugin" >
+                <param name="android-package" value="cordova.plugin.scan.ScanPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/ScanPlugin.java" target-dir="src/cordova/plugin/scan/ScanPlugin" />
+    </platform> -->
+    
+</plugin>
