@@ -1,8 +1,8 @@
 var exec = require('cordova/exec');
 
 var ScanPlugin = {
-  scan: function (param, successFn, failureFn) {
-    exec(successFn, failureFn, 'ScanPlugin', 'scan', [param]);
+  scan: function (successFn, failureFn) {
+    exec(successFn, failureFn, 'ScanPlugin', 'scan');
   }
 }
 
