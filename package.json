@@ -1,0 +1,35 @@
+{
+  "name": "cordova-plugin-scan",
+  "version": "1.0.0",
+  "description": "codrova/phonegap wrapper for scan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qqq470448105/cordova-plugin-scan.git"
+  },
+  "cordova": {
+    "id": "cordova-plugin-scan",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova",
+    "phonegap",
+    "plugin",
+    "scan"
+  ],
+  "author": "https://github.com/qqq470448105",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qqq470448105/cordova-plugin-scan.git"
+  },
+  "homepage": "https://github.com/qqq470448105/cordova-plugin-scan.git"
+}

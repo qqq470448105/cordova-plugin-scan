@@ -66,14 +66,73 @@
     </platform>
 
     <!-- Android -->
-    <!-- <platform name="android">
+    <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="ScanPlugin" >
-                <param name="android-package" value="cordova.plugin.scan.ScanPlugin"/>
+                <param name="android-package" value="cordova.plugin.scan.ScanPlugin.ScanPlugin"/>
                 <param name="onload" value="true" />
             </feature>
         </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:theme="@style/AppTheme"
+                android:screenOrientation="portrait"
+                android:name="cordova.plugin.scan.erweima.sweepcode.activity.ActivityScanerCode" />
+            <application
+                android:name="cordova.plugin.scan.app.ScCordovaApplication"
+                android:hardwareAccelerated="true"
+                android:icon="@mipmap/icon"
+                android:label="@string/app_name"
+                android:supportsRtl="true"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.VIBRATE"/>
+            <uses-permission android:name="android.permission.FLASHLIGHT"/>
+            <uses-permission android:name="android.permission.CAMERA"/>
+            <uses-feature android:name="android.hardware.camera"/>
+            <uses-feature android:name="android.hardware.camera.autofocus"/>
+        </config-file>
+
+        <!-- 插件调用类 -->
         <source-file src="src/android/ScanPlugin.java" target-dir="src/cordova/plugin/scan/ScanPlugin" />
-    </platform> -->
+
+        <!-- libs -->
+        <lib-file src="libs/android/zxing_core_3.0.1.jar"/>
+        <source-file src="libs/android/sweepcode/activity/ActivityBase.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/activity" />
+        <source-file src="libs/android/sweepcode/activity/ActivityScanerCode.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/activity" />
+        <source-file src="libs/android/sweepcode/handler/CaptureActivityHandler.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/handler" />
+        <source-file src="libs/android/sweepcode/handler/DecodeHandler.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/handler" />
+        <source-file src="libs/android/sweepcode/handler/DecodeThread.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/handler" />
+        <source-file src="libs/android/sweepcode/handler/InactivityTimer.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/handler" />
+        <source-file src="libs/android/sweepcode/listener/FinishListener.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/listener" />
+        <source-file src="libs/android/sweepcode/listener/OnRxScanerListener.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/listener" />
+        <source-file src="libs/android/sweepcode/listener/OnUpdateListener.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/listener" />
+        <source-file src="libs/android/sweepcode/manager/AutoFocusCallback.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/manager" />
+        <source-file src="libs/android/sweepcode/manager/CameraConfigurationManager.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/manager" />
+        <source-file src="libs/android/sweepcode/manager/CameraManager.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/manager" />
+        <source-file src="libs/android/sweepcode/manager/FlashlightManager.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/manager" />
+        <source-file src="libs/android/sweepcode/manager/PreviewCallback.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/manager" />
+        <source-file src="libs/android/sweepcode/tools/AnimationTool.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/tools/BeepTool.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/tools/BitmapLuminanceSource.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/tools/ImageTool.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/tools/PhotoTool.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/tools/PlanarYUVLuminanceSource.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/tools/QrBarTool.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/tools/VibrateTool.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/tools" />
+        <source-file src="libs/android/sweepcode/app/ScCordovaApplication.java" target-dir="src/cordova/plugin/scan/erweima/sweepcode/app" />
+        <source-file src="libs/android/res/drawable/capture.png" target-dir="res/drawable-port-hdpi" />
+        <source-file src="libs/android/res/drawable/kakalib_scan_ray.png" target-dir="res/drawable-port-hdpi" />
+        <source-file src="libs/android/res/drawable/s_img.png" target-dir="res/drawable-port-hdpi" />
+        <source-file src="libs/android/res/drawable/s_left_jiantou.png" target-dir="res/drawable-port-hdpi" />
+        <source-file src="libs/android/res/drawable/s_light.png" target-dir="res/drawable-port-hdpi" />
+        <source-file src="libs/android/res/drawable/scan_mask.png" target-dir="res/drawable-port-hdpi" />
+        <source-file src="libs/android/res/layout/activity_scaer_code_layout.xml" target-dir="res/layout" />
+        <source-file src="libs/android/res/raw/beep.ogg" target-dir="res/raw" />
+        <source-file src="libs/android/res/values/ids.xml" target-dir="res/values" />
+        <source-file src="libs/android/res/values/colors.xml" target-dir="res/values" />
+        <source-file src="libs/android/res/values/styles.xml" target-dir="res/values" />
+    </platform>
     
 </plugin>
